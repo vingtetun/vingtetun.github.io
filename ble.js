@@ -58,6 +58,7 @@ addEventListener('unload', function() {
   }
 });
 
+let decoder = new TextDecoder();
 function handleNotifications(event) {
   let value = event.target.value;
   let a = [];
@@ -69,6 +70,6 @@ function handleNotifications(event) {
   }
   log('> ' + a.join(' '));
 
-  position = JSON.parse(TextDecoder.decode(value));
-  console.log(TextDecoder.decode(value));
+  position = JSON.parse(decoder.decode(value));
+  console.log(decoder.decode(value));
 }
