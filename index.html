@@ -47,6 +47,10 @@
   }
 
   function getClosestResult(current) {
+    if (!current) {
+      return;
+    }
+
     let rv = 0;
     let value = 0xFFFF;
     for (let i = 0; i < 8; i++) {
