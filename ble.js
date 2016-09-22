@@ -70,6 +70,13 @@ function handleNotifications(event) {
   }
   log('> ' + a.join(' '));
 
-  position = JSON.parse(decoder.decode(value));
-  console.log(decoder.decode(value));
+  let decoded = decoder.decode(value);
+  console.log(decoded);
+
+  let values = decoded.split(',');
+  position = {
+    x: values[0],
+    y: values[1],
+    z: values[2]
+  };
 }
