@@ -47,10 +47,6 @@
   }
 
   function getClosestResult(current) {
-    if (!current) {
-      return;
-    }
-
     let rv = 0;
     let value = 0xFFFF;
     for (let i = 0; i < 8; i++) {
@@ -77,6 +73,10 @@
 
   function refresh() {
     var result = getPosition();
+    if (!result) {
+      return;
+    }
+
     let closest = getClosestResult(result);
     console.log(result, closest);
     document.getElementById('board').innerText = closest;
