@@ -1,7 +1,5 @@
-var serviceUuid = '0xeb05';
-var characteristicUuid = '0xfff1';
-var myCharacteristic;
 
+var myCharacteristic;
 var position;
 
 function log(str) {
@@ -9,6 +7,9 @@ function log(str) {
 }
 
 function start() {
+  var serviceUuid = '0xeb05';
+  var characteristicUuid = '0xfff1';
+
   if (serviceUuid.startsWith('0x')) {
     serviceUuid = parseInt(serviceUuid);
   }
@@ -61,14 +62,6 @@ addEventListener('unload', function() {
 let decoder = new TextDecoder();
 function handleNotifications(event) {
   let value = event.target.value;
-  let a = [];
-  // Convert raw data bytes to hex values just for the sake of showing something.
-  // In the "real" world, you'd use data.getUint8, data.getUint16 or even
-  // TextDecoder to process raw data bytes.
-  for (let i = 0; i < value.byteLength; i++) {
-    a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
-  }
-  log('> ' + a.join(' '));
 
   let decoded = decoder.decode(value);
   console.log(decoded);
